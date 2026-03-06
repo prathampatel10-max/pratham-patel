@@ -1,0 +1,29 @@
+let cart = [];
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  updateCart();
+}
+
+function updateCart() {
+  let cartList = document.getElementById("cart-items");
+  if (!cartList) return; // Only run on products page
+  cartList.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    let li = document.createElement("li");
+    li.textContent = item.name + " - ₹" + item.price;
+    cartList.appendChild(li);
+    total += item.price;
+  });
+
+  // Update totals on page
+  document.getElementById("cart-total").textContent = total;
+
+  // ✅ Pass amount in INR to PayPal
+  document.getElementById("paypal-amount").value = total;
+
+  // ✅ Pass product names to PayPal
+  document.getElementById("paypal-item").value = cart.map(item => item.name).join(", ");
+}

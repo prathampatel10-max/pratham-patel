@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prajay Cart - Products</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1 style="text-align:center;">Prajay Cart Products</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Products -->
+    <div class="product">
+      <img src="C:\Users\smira\OneDrive\Desktop\New folder\n\prajay cart\t-shirt.jpeg" alt="Cool T-Shirt" width="200">
+      <h2>Cool T-Shirt</h2>
+      <p>Price: ₹1599</p>
+      <button type="button" onclick="addToCart('Cool T-Shirt', 1599)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="C:\Users\smira\OneDrive\Desktop\New folder\n\prajay cart\WhatsApp Image 2026-03-05 at 9.36.39 PM.jpeg" alt="Stylish Clock" width="200">
+      <h2>Stylish Clock</h2>
+      <p>Price: ₹899</p>
+      <button type="button" onclick="addToCart('Stylish Clock', 899)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="C:\Users\smira\OneDrive\Desktop\New folder\n\prajay cart\WhatsApp Image 2026-03-05 at 9.36.39 PM (1).jpeg"alt="Formula1 Car" width="200">
+      <h2>Formula 1 Car</h2>
+      <p>Price: ₹1999</p>
+      <button type="button" onclick="addToCart('Formula 1 Car', 1999)">Add to Cart</button>
+    </div>
+    
+    <div class="product">
+      <img src="C:\Users\smira\OneDrive\Desktop\New folder\n\prajay cart\chiku.jpeg" alt="Fluffy Chick" width="200">
+      <h2>Fluffy Chick</h2>
+      <p>Price: ₹1199</p>
+      <button type="button" onclick="addToCart('Fluffy Chick', 1199)">Add to Cart</button>
+    </div>
+    
+    <div class="product">
+      <img src="C:\Users\smira\OneDrive\Desktop\New folder\n\prajay cart\delulu.jpeg" alt="Dell Laptop" width="200">
+      <h2>Dell Laptop</h2>
+      <p>Price: ₹11999</p>
+      <button type="button" onclick="addToCart('Dell Laptop', 11999)">Add to Cart</button>
+    </div>
+    
+    <h4>MORE PRODUCTS ARE LAUNCHING SOON......</h4>
+
+    <!-- Cart -->
+    <div class="cart" style="margin-top:40px;">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: ₹<span id="cart-total">0</span></p>
+      <p id="discounted-row" style="display:none;">Discounted Total: ₹<span id="discounted-total">0</span></p>
+
+      <!-- Coupon Section -->
+      <small>Use code <b>'prajay20'</b> for 20% off (first-time users only)</small><br>
+      <input type="text" id="coupon-code" placeholder="Enter coupon code">
+      <button type="button" onclick="applyCoupon()">Apply Coupon</button>
+      
+      <br><br>
+
+      <!-- COD Checkout -->
+      <form id="orderForm" action="https://formspree.io/f/xaqpynzq" method="POST">
+        <!-- Hidden fields auto-filled by JS -->
+        <input type="hidden" name="products" id="productField">
+        <input type="hidden" name="total" id="totalField">
+
+        <!-- Customer details -->
+        <input type="text" name="name" placeholder="Your Name" required><br><br>
+        <input type="email" name="email" placeholder="Your Email" required><br><br>
+        <input type="text" name="address" placeholder="Delivery Address" required><br><br>
+
+        <button type="submit">Place COD Order</button>
+      </form>
+
+      <p id="confirmationMessage" style="color:green; font-weight:bold; display:none;">
+        ✅ Order Confirmed! Thank you for shopping with Prajay Cart.
+      </p>
+    </div>
+  </main>
+</body>
+</html>
